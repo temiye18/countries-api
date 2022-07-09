@@ -1,0 +1,25 @@
+header {
+  background: var(--dark-mode-elements);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar button {
+  font-family: var(--nunito-sans);
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--dark-mode-text);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  font-weight: 300;
+}

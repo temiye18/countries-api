@@ -1,0 +1,32 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --nunito-sans: "Nunito Sans", sans-serif;
+  --dark-mode-background: hsl(207, 26%, 17%);
+  --dark-mode-elements: hsl(209, 23%, 22%);
+  --dark-mode-text: #fff;
+}
+
+body {
+  margin: 0;
+  font-size: 1rem;
+  background-color: var(--dark-mode-background);
+  font-family: var(--nunito-sans);
+  color: var(--dark-mode-text);
+}
+
+img {
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
