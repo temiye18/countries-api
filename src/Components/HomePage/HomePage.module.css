@@ -1,0 +1,9 @@
+section {
+  margin-top: 5rem;
+}
+
+.countries {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+  gap: 2rem;
+}
