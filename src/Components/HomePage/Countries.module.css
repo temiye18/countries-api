@@ -7,6 +7,10 @@ img {
   height: 192px;
 }
 
+.country__links {
+  color: var(--dark-mode-text);
+}
+
 .country__card {
   background: var(--dark-mode-elements);
   border-radius: 4px;
