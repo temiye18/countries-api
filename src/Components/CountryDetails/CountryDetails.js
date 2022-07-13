@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import axios from "axios";
-import { BiLeftArrowAlt } from "react-icons/bi";
+import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
 import classes from "./CountryDetails.module.css";
 import Container from "../UI/Container.styled";
 import CountryAttributes from "./CountryAttributes";
@@ -10,6 +10,11 @@ import Loading from "../UI/Loading";
 const CountryDetails = () => {
   const [countries, setCountries] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  let history = useHistory();
+
+  const goToPreviousPath = () => {
+    history.goBack();
+  };
 
   const { name } = useParams();
   console.log(name);
@@ -33,17 +38,17 @@ const CountryDetails = () => {
     handleFetch();
   }, [handleFetch]);
 
-  // if (isLoading) {
-  //   return <h1>Loading</h1>;
-  // }
-
   return (
     <section>
       <Container>
-        <div className={classes.country_details}>
-          <Link to="/" className={classes.back}>
-            <BiLeftArrowAlt /> Back
-          </Link>
+        <div className={classes.country__details}>
+          <div className={classes.back__link}>
+            <button className={classes.back} onClick={goToPreviousPath}>
+              <HiOutlineArrowNarrowLeft className={classes.back__arrow} />
+              <span>Back</span>
+            </button>
+          </div>
+
           {isLoading ? (
             <Loading />
           ) : (

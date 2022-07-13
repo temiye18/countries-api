@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import classes from "./CountryDetails.module.css";
 
 const CountryAttributes = ({ countries }) => {
@@ -24,9 +25,15 @@ const CountryAttributes = ({ countries }) => {
   ));
   // console.log(countryLanguages);
 
-  const borderCountry = borders.map((border, index) => (
-    <span key={index}>{border}</span>
-  ));
+  const borderCountry =
+    borders &&
+    borders.map((border, index) => (
+      <span className={classes.borders} key={index}>
+        <Link to={`/details/${border}`}>
+          <button>{border}</button>
+        </Link>
+      </span>
+    ));
   return (
     <div className={classes.details__grid}>
       <div className={classes.country__flag}>
@@ -34,28 +41,28 @@ const CountryAttributes = ({ countries }) => {
       </div>
 
       <div className={classes.country__attributes}>
-        <div className={classes.attribute_1}>
-          <h3>{common}</h3>
-          <p>
-            Native Name:{" "}
-            <span className={classes.details__span}>{nativeName[1]}</span>
-          </p>
-          <p>
-            Population:{" "}
-            <span className={classes.details__span}>{population}</span>
-          </p>
-          <p>
-            Region: <span className={classes.details__span}>{region}</span>
-          </p>
-          <p>
-            Sub Region:{" "}
-            <span className={classes.details__span}>{subregion}</span>
-          </p>
-          <p>
-            Capital: <span className={classes.details__span}>{capital}</span>
-          </p>
-        </div>
-        <div className={classes.attribute2__box}>
+        <div className={classes.attribute__container}>
+          <div className={classes.attribute_1}>
+            <h3>{common}</h3>
+            <p>
+              Native Name:{" "}
+              <span className={classes.details__span}>{nativeName[1]}</span>
+            </p>
+            <p>
+              Population:{" "}
+              <span className={classes.details__span}>{population}</span>
+            </p>
+            <p>
+              Region: <span className={classes.details__span}>{region}</span>
+            </p>
+            <p>
+              Sub Region:{" "}
+              <span className={classes.details__span}>{subregion}</span>
+            </p>
+            <p>
+              Capital: <span className={classes.details__span}>{capital}</span>
+            </p>
+          </div>
           <div className={classes.attribute_2}>
             <p>
               Top Level Domain:{" "}
@@ -70,10 +77,12 @@ const CountryAttributes = ({ countries }) => {
               <span className={classes.details__span}>{countryLanguages}</span>
             </p>
           </div>
-          <div className={classes.border_countries}>
+        </div>
+        {borderCountry && (
+          <div className={classes.border__countries}>
             <p>Border Countries: {borderCountry}</p>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

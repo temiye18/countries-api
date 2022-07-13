@@ -7,6 +7,19 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.navbar h1 {
+  margin: 0;
+}
+
+@media (max-width: 388px) {
+  .navbar {
+    flex-direction: column;
+    gap: 20px;
+  }
 }
 
 .navbar button {

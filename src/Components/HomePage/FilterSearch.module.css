@@ -1,7 +1,8 @@
 .filter__actions {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, auto));
   justify-content: space-between;
-  align-items: center;
+  row-gap: 2rem;
 }
 
 .search {
@@ -16,6 +17,12 @@
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.08), -3px -3px 3px rgba(0, 0, 0, 0.08);
 }
 
+@media (max-width: 494px) {
+  .filter__actions {
+    grid-template-columns: 1fr;
+  }
+}
+
 input[type="text"] {
   border-radius: 0 4px 4px 0;
   font-family: var(--nunito-sans);
@@ -25,7 +32,7 @@ input[type="text"] {
   border: none;
   outline: none;
   padding: 15px 1.5rem;
-  width: 400px;
+  max-width: 400px;
 }
 
 input::placeholder {
@@ -37,6 +44,7 @@ input::placeholder {
   border-radius: 4px;
   padding: 0 10px;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.08), -3px -3px 3px rgba(0, 0, 0, 0.08);
+  max-width: 180px;
 }
 
 .select {
