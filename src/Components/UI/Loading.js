@@ -1,13 +1,13 @@
 import React from "react";
 import Container from "./Container.styled";
-import classes from "./Loading.module.css";
+import "./Loading.css";
 
 const Loading = () => {
   return (
     <section>
       <Container>
-        <div className={classes.lds__center}>
-          <div className={classes["lds-ring"]}>
+        <div className="lds__center">
+          <div className="lds-ring">
             <div></div>
             <div></div>
             <div></div>
