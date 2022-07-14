@@ -1,21 +1,21 @@
 import React from "react";
 import Container from "./Container.styled";
-import styled from "styled-components";
-
-const Heading = styled.h3`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  //   height: 100vh;
-  font-size: 3rem;
-`;
+import classes from "./Loading.module.css";
 
 const Loading = () => {
   return (
-    <Container>
-      <Heading>Loading....</Heading>
-    </Container>
+    <section>
+      <Container>
+        <div className={classes.lds__center}>
+          <div className={classes["lds-ring"]}>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      </Container>
+    </section>
   );
 };
 
