@@ -23,7 +23,7 @@
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.08), -3px -3px 3px rgba(0, 0, 0, 0.08);
 }
 
-.light .back {
+.dark .back {
   background-color: var(--light-mode-elements);
   color: var(--light-mode-text);
 }
@@ -91,7 +91,7 @@ img {
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.08), -3px -3px 3px rgba(0, 0, 0, 0.08);
 }
 
-.light .borders button {
+.dark .borders button {
   background: var(--light-mode-elements);
   color: var(--light-mode-text);
 }
