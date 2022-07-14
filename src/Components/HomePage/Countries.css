@@ -35,6 +35,20 @@ img {
   padding: 2rem;
 }
 
+.country__details button {
+  padding: 10px 20px;
+  color: var(--dark-mode-text);
+  background-color: var(--dark-mode-elements);
+  font-size: 16px;
+  font-weight: 600;
+  font-style: italic;
+  border: none;
+  outline: none;
+  font-family: var(--nunito-sans);
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.08), -3px -3px 3px rgba(0, 0, 0, 0.08);
+}
 .country__details h3 {
   font-weight: 800;
 }

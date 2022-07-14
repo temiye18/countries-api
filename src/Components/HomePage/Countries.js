@@ -13,6 +13,7 @@ const Countries = ({
     <Link to={`/details/${common}`} className="country__links">
       <div className="country__card">
         <img src={png} alt="flag_img" />
+
         <div className="country__details">
           <h3>{common}</h3>
           <p>
@@ -25,6 +26,9 @@ const Countries = ({
           <p>
             capital: <span className="country__span">{capital}</span>
           </p>
+          <Link to={`/details/${common}`} className="country__links">
+            <button>Learn More</button>
+          </Link>
         </div>
       </div>
     </Link>
