@@ -2,10 +2,12 @@
   background: var(--dark-mode-background);
   color: var(--dark-mode-text);
   transition: var(--transition);
+  /* height: 100%; */
 }
 
 .light {
   background: var(--light-mode-background);
   color: var(--light-mode-text);
   transition: var(--transition);
+  /* height: 100%; */
 }

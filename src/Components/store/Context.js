@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext, createContext } from "react";
 const ThemeContext = createContext(null);
 
 const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("dark");
 
   useEffect(() => {
     const myTheme = localStorage.getItem("theme");
@@ -16,6 +16,7 @@ const ThemeProvider = ({ children }) => {
   useEffect(() => {
     localStorage.setItem("theme", theme);
   }, [theme]);
+
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}
