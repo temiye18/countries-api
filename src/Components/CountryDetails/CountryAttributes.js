@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import classes from "./CountryDetails.module.css";
+import "./CountryDetails.css";
 
 const CountryAttributes = ({ countries }) => {
   const {
@@ -28,58 +28,55 @@ const CountryAttributes = ({ countries }) => {
   const borderCountry =
     borders &&
     borders.map((border, index) => (
-      <span className={classes.borders} key={index}>
+      <span className="borders" key={index}>
         <Link to={`/details/${border}`}>
           <button>{border}</button>
         </Link>
       </span>
     ));
   return (
-    <div className={classes.details__grid}>
-      <div className={classes.country__flag}>
+    <div className="details__grid">
+      <div className="country__flag">
         <img src={flags.png} alt="flag_img" />
       </div>
 
-      <div className={classes.country__attributes}>
-        <div className={classes.attribute__container}>
-          <div className={classes.attribute_1}>
+      <div className="country__attributes">
+        <div className="attribute__container">
+          <div className="attribute_1">
             <h3>{common}</h3>
             <p>
               Native Name:{" "}
-              <span className={classes.details__span}>{nativeName[1]}</span>
+              <span className="details__span">{nativeName[1]}</span>
             </p>
             <p>
-              Population:{" "}
-              <span className={classes.details__span}>{population}</span>
+              Population: <span className="details__span">{population}</span>
             </p>
             <p>
-              Region: <span className={classes.details__span}>{region}</span>
+              Region: <span className="details__span">{region}</span>
             </p>
             <p>
-              Sub Region:{" "}
-              <span className={classes.details__span}>{subregion}</span>
+              Sub Region: <span className="details__span">{subregion}</span>
             </p>
             <p>
-              Capital: <span className={classes.details__span}>{capital}</span>
+              Capital: <span className="details__span">{capital}</span>
             </p>
           </div>
-          <div className={classes.attribute_2}>
+          <div className="attribute_2">
             <p>
-              Top Level Domain:{" "}
-              <span className={classes.details__span}>{tld[0]}</span>
+              Top Level Domain: <span className="details__span">{tld[0]}</span>
             </p>
             <p>
               Currencies:{" "}
-              <span className={classes.details__span}>{countryCurrency}</span>
+              <span className="details__span">{countryCurrency}</span>
             </p>
             <p>
               Languages:{" "}
-              <span className={classes.details__span}>{countryLanguages}</span>
+              <span className="details__span">{countryLanguages}</span>
             </p>
           </div>
         </div>
         {borderCountry && (
-          <div className={classes.border__countries}>
+          <div className="border__countries">
             <p>Border Countries: {borderCountry}</p>
           </div>
         )}

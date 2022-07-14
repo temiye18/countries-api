@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./FilterSearch.module.css";
+import "./FilterSearch.css";
 import { AiOutlineSearch } from "react-icons/ai";
 
 const FilterSearch = (props) => {
@@ -12,9 +12,9 @@ const FilterSearch = (props) => {
   };
 
   return (
-    <div className={classes.filter__actions}>
-      <div className={classes.search}>
-        <AiOutlineSearch className={classes.search__icon} />
+    <div className="filter__actions">
+      <div className="search">
+        <AiOutlineSearch className="search__icon" />
 
         <input
           type="text"
@@ -23,9 +23,9 @@ const FilterSearch = (props) => {
           onChange={handleSearchValue}
         />
       </div>
-      <div className={classes.select__box}>
+      <div className="select__box">
         <select
-          className={classes.select}
+          className="select"
           name="filter"
           id="filter"
           onChange={setFilter}

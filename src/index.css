@@ -8,13 +8,18 @@
   --nunito-sans: "Nunito Sans", sans-serif;
   --dark-mode-background: hsl(207, 26%, 17%);
   --dark-mode-elements: hsl(209, 23%, 22%);
-  --dark-mode-text: #fff;
+  --dark-mode-text: hsl(0, 0%, 100%);
+  --light-mode-input: hsl(0, 0%, 52%);
+  --light-mode-text: hsl(200, 15%, 8%);
+  --light-mode-background: hsl(0, 0%, 98%);
+  --light-mode-elements: hsl(0, 0%, 100%);
+  --transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
 body {
   margin: 0;
   font-size: 1rem;
-  background-color: var(--dark-mode-background);
+  /* background-color: var(--dark-mode-background); */
   font-family: var(--nunito-sans);
   color: var(--dark-mode-text);
 }

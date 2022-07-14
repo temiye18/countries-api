@@ -4,7 +4,7 @@ import Container from "../UI/Container.styled";
 import Loading from "../UI/Loading";
 import Countries from "./Countries";
 import FilterSearch from "./FilterSearch";
-import classes from "./HomePage.module.css";
+import "./HomePage.css";
 
 const url = "https://restcountries.com/v3.1/all";
 
@@ -15,8 +15,6 @@ const HomePage = () => {
   // const [isError, setIsError] = useState(false);
 
   const handleFilter = (filteredRegion) => {
-    console.log(filteredRegion);
-
     const filteredCountries = countries.filter(
       (country) => country.region === filteredRegion
     );
@@ -38,7 +36,6 @@ const HomePage = () => {
       setCountries(data);
     } catch (error) {
       // setIsError(true);
-      console.log(error);
     }
   };
 
@@ -66,7 +63,7 @@ const HomePage = () => {
   }, []);
 
   const allCountries = (
-    <section className={classes.countries}>
+    <section className={"countries"}>
       {filtered.length > 1
         ? filtered.map((country) => (
             <Countries key={country.name.common} {...country} />

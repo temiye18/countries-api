@@ -11,11 +11,20 @@ img {
   color: var(--dark-mode-text);
 }
 
+.light {
+  color: var(--light-mode-text);
+}
+
 .country__card {
   background: var(--dark-mode-elements);
   border-radius: 4px;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.08), -3px -3px 3px rgba(0, 0, 0, 0.08);
 }
+
+.light .country__card {
+  background: var(--light-mode-elements);
+}
+
 .country__card img {
   width: 100%;
   margin: 0;
@@ -32,6 +41,11 @@ img {
 
 .country__details p {
   font-weight: 600;
+  color: var(--dark-mode-text);
+}
+
+.light .country__details p {
+  color: var(--light-mode-text);
 }
 
 .country__span {

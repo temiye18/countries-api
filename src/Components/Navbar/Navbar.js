@@ -1,16 +1,18 @@
 import React from "react";
 import Container from "../UI/Container.styled";
-import classes from "./Navbar.module.css";
+import "./Navbar.css";
 import { BsFillMoonFill } from "react-icons/bs";
+import { useGlobalTheme } from "../store/Context";
 
 const Navbar = () => {
+  const { theme, toggleTheme } = useGlobalTheme();
   return (
     <header>
       <Container>
-        <nav className={classes.navbar}>
+        <nav className="navbar">
           <h1>Where in the world?</h1>
-          <button>
-            <BsFillMoonFill /> Dark Mode
+          <button onClick={toggleTheme}>
+            <BsFillMoonFill /> {theme === "light" ? "Light Mode" : "Dark Mode"}
           </button>
         </nav>
       </Container>

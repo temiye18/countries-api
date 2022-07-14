@@ -3,6 +3,10 @@ header {
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+.light header {
+  background: var(--light-mode-elements);
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -35,4 +39,9 @@ header {
   gap: 10px;
   font-size: 1rem;
   font-weight: 300;
+  cursor: pointer;
+}
+
+.light button {
+  color: var(--light-mode-text);
 }

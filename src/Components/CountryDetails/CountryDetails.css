@@ -1,3 +1,6 @@
+.details__section {
+  height: 100vh;
+}
 .back__link {
   max-width: 100px;
 }
@@ -18,6 +21,11 @@
   cursor: pointer;
   margin-bottom: 3rem;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.08), -3px -3px 3px rgba(0, 0, 0, 0.08);
+}
+
+.light .back {
+  background-color: var(--light-mode-elements);
+  color: var(--light-mode-text);
 }
 
 .details__grid {
@@ -81,4 +89,9 @@ img {
   padding: 5px 25px;
   font-family: var(--nunito-sans);
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.08), -3px -3px 3px rgba(0, 0, 0, 0.08);
+}
+
+.light .borders button {
+  background: var(--light-mode-elements);
+  color: var(--light-mode-text);
 }
