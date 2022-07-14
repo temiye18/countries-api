@@ -2,6 +2,7 @@
   background: var(--dark-mode-background);
   color: var(--dark-mode-text);
   transition: var(--transition);
+  padding-top: 2rem;
   /* height: 100%; */
 }
 
@@ -9,5 +10,6 @@
   background: var(--light-mode-background);
   color: var(--light-mode-text);
   transition: var(--transition);
+  padding-top: 2rem;
   /* height: 100%; */
 }

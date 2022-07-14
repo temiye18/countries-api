@@ -1,4 +1,5 @@
 .filter__actions {
+  padding-top: 2rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, auto));
   justify-content: space-between;
