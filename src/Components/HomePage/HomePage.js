@@ -54,7 +54,7 @@ const HomePage = () => {
     } catch (error) {
       setIsLoading(false);
       // setIsError(true);
-      console.log(error);
+      console.log(error.message);
     }
   };
 
