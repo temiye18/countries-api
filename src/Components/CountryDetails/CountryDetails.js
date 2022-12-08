@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
-import useHttp from "../../hooks/use-http";
+import useAsync from "../../hooks/use-async";
 import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
 import "./CountryDetails.css";
 import Container from "../UI/Container.styled";
@@ -8,7 +8,7 @@ import CountryAttributes from "./CountryAttributes";
 import Loading from "../UI/Loading";
 
 const CountryDetails = () => {
-  const { isLoading, countries, fetchCountries: fetchACountry } = useHttp();
+  const { isLoading, countries, fetchCountries: fetchACountry } = useAsync();
 
   let history = useHistory();
 

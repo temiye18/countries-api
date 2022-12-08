@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import useHttp from "../../hooks/use-http";
+import useAsync from "../../hooks/use-async";
 import Container from "../UI/Container.styled";
 import Loading from "../UI/Loading";
 import Countries from "./Countries";
@@ -13,7 +13,7 @@ const HomePage = () => {
 
   // const [isError, setIsError] = useState(false);
 
-  const { isLoading, countries, fetchCountries } = useHttp();
+  const { isLoading, countries, fetchCountries } = useAsync();
 
   const handleFilter = (filteredRegion) => {
     fetchCountries(url);
