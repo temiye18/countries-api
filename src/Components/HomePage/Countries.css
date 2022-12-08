@@ -59,6 +59,10 @@ img {
   font-weight: 800;
 }
 
+.light .country__details h3 {
+  color: var(--light-mode-text);
+}
+
 .country__details p {
   font-weight: 600;
   color: var(--dark-mode-text);
