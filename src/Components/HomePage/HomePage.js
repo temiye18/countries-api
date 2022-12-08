@@ -15,9 +15,10 @@ const HomePage = () => {
   // const [isError, setIsError] = useState(false);
 
   const handleFilter = (filteredRegion) => {
-    fetchCountries();
-    const filteredCountries = countries.filter(
-      (country) => country.region === filteredRegion
+    console.log(filteredRegion);
+    fetchCountries(); // re-fetch countries if searching for a country and then try to filter
+    const filteredCountries = countries.filter((country) =>
+      filteredRegion === "all" ? country : country.region === filteredRegion
     );
     setFiltered(filteredCountries);
   };
@@ -34,7 +35,7 @@ const HomePage = () => {
       // }
 
       const data = resp.data;
-      setFiltered([]);
+      setFiltered([]); // to reset the filtered countries to default list if filtering and then searching for a country
       setCountries(data);
     } catch (error) {
       // setIsError(true);
@@ -52,6 +53,7 @@ const HomePage = () => {
       const country = data.slice(0, 20);
       // console.log(country);
       setCountries(country);
+
       setIsLoading(false);
     } catch (error) {
       setIsLoading(false);
@@ -66,7 +68,7 @@ const HomePage = () => {
 
   const allCountries = (
     <section className={"countries"}>
-      {filtered.length > 1
+      {filtered.length > 0
         ? filtered.map((country) => (
             <Countries key={country.name.common} {...country} />
           ))

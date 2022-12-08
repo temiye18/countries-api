@@ -30,7 +30,7 @@ const FilterSearch = (props) => {
           id="filter"
           onChange={setFilter}
         >
-          <option>Filter by region</option>
+          <option value="all">Filter by region</option>
           <option value="Africa">Africa</option>
           <option value="Americas">Americas</option>
           <option value="Asia">Asia</option>
