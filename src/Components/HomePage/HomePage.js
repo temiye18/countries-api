@@ -9,7 +9,7 @@ import "./HomePage.css";
 const url = "https://restcountries.com/v3.1";
 
 const HomePage = () => {
-  const [filtered, setFiltered] = useState([]);
+  const [region, setRegion] = useState("all");
 
   // const [isError, setIsError] = useState(false);
 
@@ -17,14 +17,19 @@ const HomePage = () => {
 
   const handleFilter = (filteredRegion) => {
     fetchCountries(url);
-    const filteredCountries = countries.filter(
-      (country) => country.region === filteredRegion
-    );
-    setFiltered(filteredCountries);
+    setRegion(filteredRegion);
   };
 
+  console.log(countries);
+
+  const filtered = countries.filter(
+    (country) => country.region === region || region === "all"
+  );
+
+  console.log(filtered);
+
   const handleSearch = async (searchValue) => {
-    setFiltered([]);
+    // setRegion("all");
     const regionEndpoint = `name/${searchValue}`;
     fetchCountries(url, regionEndpoint);
   };
@@ -35,20 +40,27 @@ const HomePage = () => {
 
   const allCountries = (
     <section className={"countries"}>
-      {filtered.length > 1
-        ? filtered.map((country) => (
-            <Countries key={country.name.common} {...country} />
-          ))
-        : countries.map((country) => (
-            <Countries key={country.name.common} {...country} />
-          ))}
+      {filtered.map((country) => (
+        <Countries key={country.name.common} {...country} />
+      ))}
+
+      {filtered.length === 0 && (
+        <h2 className="error-message">
+          Ooops!! Country can't be found in this region. Please select "All" to
+          search for countries from all regions
+        </h2>
+      )}
     </section>
   );
 
   return (
     <section>
       <Container>
-        <FilterSearch onFilter={handleFilter} onSearch={handleSearch} />
+        <FilterSearch
+          region={region}
+          onFilter={handleFilter}
+          onSearch={handleSearch}
+        />
         {isLoading ? <Loading /> : allCountries}
       </Container>
     </section>
