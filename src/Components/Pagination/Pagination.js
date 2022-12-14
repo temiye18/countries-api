@@ -1,4 +1,6 @@
 import React from "react";
+import { FaLongArrowAltLeft } from "react-icons/fa";
+import { FaLongArrowAltRight } from "react-icons/fa";
 import "./Pagination.css";
 
 const Pagination = ({
@@ -59,7 +61,7 @@ const Pagination = ({
           onClick={handlePrev}
           disabled={currentPage === pages[0] ? true : false}
         >
-          Prev
+          <FaLongArrowAltLeft /> Prev
         </button>
 
         <div className="page-number-container">
@@ -75,7 +77,7 @@ const Pagination = ({
           onClick={handleNext}
           disabled={currentPage === pages[pages.length - 1] ? true : false}
         >
-          Next
+          Next <FaLongArrowAltRight />
         </button>
       </div>
     </section>

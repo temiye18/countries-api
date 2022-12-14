@@ -13,6 +13,9 @@
 }
 .prev-btn,
 .next-btn {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
   padding: 8px 14px;
   color: var(--light-mode-text);
   background-color: var(--light-mode-elements);
