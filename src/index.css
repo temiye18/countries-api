@@ -15,12 +15,15 @@
   --light-mode-elements: hsl(0, 0%, 100%);
   --transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
   font-size: 1rem;
   font-family: var(--nunito-sans);
-  background-color: var(--dark-mode-background);
+  /* background-color: var(--dark-mode-background); */
   color: var(--dark-mode-text);
 }
 

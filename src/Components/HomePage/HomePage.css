@@ -1,4 +1,4 @@
-section {
+.main-page {
   margin-top: 5rem;
 }
 
@@ -6,4 +6,5 @@ section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
   gap: 2rem;
+  margin-top: 5rem;
 }

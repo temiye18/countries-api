@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import useAsync from "../../hooks/use-async";
+import usePaginate from "../../hooks/usePaginate";
 import Container from "../UI/Container.styled";
 import Loading from "../UI/Loading";
 import Countries from "./Countries";
 import FilterSearch from "./FilterSearch";
+import Pagination from "../Pagination/Pagination";
 import "./HomePage.css";
 
 const url = "https://restcountries.com/v3.1";
@@ -13,20 +15,29 @@ const HomePage = () => {
 
   // const [isError, setIsError] = useState(false);
 
+  const pageRef = useRef(null);
+  const scrollPageToView = () => {
+    pageRef.current.scrollIntoView();
+  };
+
   const { isLoading, countries, fetchCountries } = useAsync();
 
+  const {
+    currentPage,
+    postPerPage,
+    maxPageLimit,
+    minPageLimit,
+    handlePageChange,
+    handlePrev,
+    handleNext,
+    resetPage,
+  } = usePaginate(20, 5, scrollPageToView);
+
   const handleFilter = (filteredRegion) => {
+    resetPage();
     fetchCountries(url);
     setRegion(filteredRegion);
   };
-
-  console.log(countries);
-
-  const filtered = countries.filter(
-    (country) => country.region === region || region === "all"
-  );
-
-  console.log(filtered);
 
   const handleSearch = async (searchValue) => {
     // setRegion("all");
@@ -38,9 +49,20 @@ const HomePage = () => {
     fetchCountries(url);
   }, [fetchCountries]);
 
+  // console.log(countries);
+
+  const filtered = countries.filter(
+    (country) => country.region === region || region === "all"
+  );
+
+  // console.log(filtered);
+
+  const indexOfLastItem = currentPage * postPerPage;
+  const indexOfFirstItem = indexOfLastItem - postPerPage;
+
   const allCountries = (
-    <section className={"countries"}>
-      {filtered.map((country) => (
+    <section className={"countries"} ref={pageRef}>
+      {filtered.slice(indexOfFirstItem, indexOfLastItem).map((country) => (
         <Countries key={country.name.common} {...country} />
       ))}
 
@@ -54,7 +76,7 @@ const HomePage = () => {
   );
 
   return (
-    <section>
+    <section className="main-page">
       <Container>
         <FilterSearch
           region={region}
@@ -62,6 +84,18 @@ const HomePage = () => {
           onSearch={handleSearch}
         />
         {isLoading ? <Loading /> : allCountries}
+        {filtered.length > 0 && (
+          <Pagination
+            handlePageChange={handlePageChange}
+            handlePrev={handlePrev}
+            handleNext={handleNext}
+            currentPage={currentPage}
+            maxPageLimit={maxPageLimit}
+            minPageLimit={minPageLimit}
+            countriesLength={filtered.length}
+            postPerPage={postPerPage}
+          />
+        )}
       </Container>
     </section>
   );

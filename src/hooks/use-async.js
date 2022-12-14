@@ -11,7 +11,7 @@ const useHttp = () => {
         throw new Error(msg);
       }
       const data = await resp.json();
-      const country = data.slice(0, 20);
+      const country = data.slice();
       // console.log(country);
       setCountries(country);
       setIsLoading(false);
