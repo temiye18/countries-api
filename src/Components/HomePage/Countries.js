@@ -10,7 +10,7 @@ const Countries = ({
   flags: { png },
 }) => {
   return (
-    <Link to={`/details/${common}`} className="country__links">
+    <div to={`/details/${common}`} className="country__links">
       <div className="country__card">
         <img src={png} alt="flag_img" />
 
@@ -31,7 +31,7 @@ const Countries = ({
           </Link>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 

@@ -8,20 +8,21 @@ import CountryAttributes from "./CountryAttributes";
 import Loading from "../UI/Loading";
 
 const CountryDetails = () => {
-  const { isLoading, countries, fetchCountries: fetchACountry } = useAsync();
-
-  let history = useHistory();
-
-  const goToPreviousPath = () => {
-    history.goBack();
-  };
-
   const { name } = useParams();
   const url = `https://restcountries.com/v3.1`;
 
-  // const handleFetch = useCallback(async () => {
+  const {
+    isLoading,
+    isError,
+    errorMessage,
+    countries,
+    fetchCountries: fetchACountry,
+  } = useAsync();
 
-  // }, [fetchACountry, name, url]);
+  let { goBack } = useHistory();
+  const goToPreviousPath = () => {
+    goBack();
+  };
 
   const endPoint = `name/${name}`;
   useEffect(() => {
@@ -39,11 +40,13 @@ const CountryDetails = () => {
             </button>
           </div>
 
-          {isLoading ? (
-            <Loading />
-          ) : (
+          {isLoading && <Loading />}
+
+          {!isLoading && !isError && countries && countries.length > 0 && (
             <CountryAttributes countries={countries} />
           )}
+
+          {!isLoading && isError && <h2>{errorMessage}</h2>}
         </div>
       </Container>
     </section>

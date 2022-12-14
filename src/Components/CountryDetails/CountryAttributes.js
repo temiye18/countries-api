@@ -77,7 +77,8 @@ const CountryAttributes = ({ countries }) => {
         </div>
         {borderCountry && (
           <div className="border__countries">
-            <p>Border Countries: {borderCountry}</p>
+            <p>Border Countries: </p>
+            {borderCountry}
           </div>
         )}
       </div>

@@ -1,9 +1,12 @@
 import { useState, useCallback } from "react";
 const useHttp = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const [countries, setCountries] = useState([]);
 
   const fetchCountries = useCallback(async (url, endpoint = "all") => {
+    setIsLoading(true);
     try {
       const resp = await fetch(`${url}/${endpoint}`);
       if (!resp.ok) {
@@ -17,12 +20,12 @@ const useHttp = () => {
       setIsLoading(false);
     } catch (error) {
       setIsLoading(false);
-      // setIsError(true);
-      console.log(error.message);
+      setIsError(true);
+      setErrorMessage(error.message);
     }
   }, []);
 
-  return { isLoading, countries, fetchCountries };
+  return { isLoading, isError, countries, fetchCountries, errorMessage };
 };
 
 export default useHttp;

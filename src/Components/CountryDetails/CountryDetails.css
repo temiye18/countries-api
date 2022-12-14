@@ -1,5 +1,6 @@
 .details__section {
-  height: 140vh;
+  min-height: 100vh;
+  margin-top: 5rem;
 }
 .back__link {
   max-width: 100px;
@@ -73,11 +74,15 @@ img {
 
 .border__countries {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 10px;
+  /* justify-items: stretch; */
+  align-items: center;
 }
 
 .borders {
-  margin-left: 8px;
+  /* margin-left: 8px; */
+  display: block;
 }
 .borders button {
   cursor: pointer;
