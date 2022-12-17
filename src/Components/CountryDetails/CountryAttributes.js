@@ -35,7 +35,7 @@ const CountryAttributes = ({ countries }) => {
       </span>
     ));
   return (
-    <div className="details__grid">
+    <div className="details__grid" data-aos="fade-up" data-aos-duration="1000">
       <div className="country__flag">
         <img src={flags.png} alt="flag_img" />
       </div>

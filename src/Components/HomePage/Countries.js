@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Countries.css";
+import "aos/dist/aos.css";
 
 const Countries = ({
   name: { common },
@@ -10,7 +11,12 @@ const Countries = ({
   flags: { png },
 }) => {
   return (
-    <div to={`/details/${common}`} className="country__links">
+    <div
+      to={`/details/${common}`}
+      className="country__links"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+    >
       <div className="country__card">
         <img src={png} alt="flag_img" />
 

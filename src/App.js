@@ -3,9 +3,11 @@ import { useGlobalTheme } from "./Components/store/Context";
 import Navbar from "./Components/Navbar/Navbar";
 import HomePage from "./Components/HomePage/HomePage";
 import CountryDetails from "./Components/CountryDetails/CountryDetails";
+import { useAnimate } from "./hooks/useAnimate";
 import "./App.css";
 
 function App() {
+  useAnimate();
   const { theme } = useGlobalTheme();
   return (
     <div className={`${theme}`}>
