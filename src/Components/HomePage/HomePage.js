@@ -41,7 +41,12 @@ const HomePage = () => {
 
   const handleSearch = async (searchValue) => {
     // setRegion("all");
-    const regionEndpoint = `name/${searchValue}`;
+    let regionEndpoint = `name/${searchValue}`;
+
+    if (searchValue === "") {
+      regionEndpoint = "all";
+    }
+
     fetchCountries(url, regionEndpoint);
   };
 

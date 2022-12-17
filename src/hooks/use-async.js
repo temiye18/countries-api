@@ -14,9 +14,7 @@ const useHttp = () => {
         throw new Error(msg);
       }
       const data = await resp.json();
-      const country = data.slice();
-      // console.log(country);
-      setCountries(country);
+      setCountries(data);
       setIsLoading(false);
     } catch (error) {
       setIsLoading(false);
