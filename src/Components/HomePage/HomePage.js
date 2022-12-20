@@ -15,7 +15,7 @@ const HomePage = () => {
   // const [isError, setIsError] = useState(false);
 
   const handleFilter = (filteredRegion) => {
-    fetchCountries();
+    // fetchCountries();
     const filteredCountries = countries.filter(
       (country) => country.region === filteredRegion
     );
@@ -34,7 +34,7 @@ const HomePage = () => {
       // }
 
       const data = resp.data;
-      setFiltered([]);
+      // setFiltered([]);
       setCountries(data);
     } catch (error) {
       // setIsError(true);
